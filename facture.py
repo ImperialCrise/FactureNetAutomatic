@@ -1,5 +1,6 @@
 import os
 import csv
+import sys
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -13,7 +14,7 @@ PASSWORD = os.getenv("FACTURE_PASSWORD")
 COMPANY_ID = os.getenv("FACTURE_COMPANY_ID")
 CLIENT_ID = os.getenv("FACTURE_CLIENT_ID")
 TAUX_HORAIRE = float(os.getenv("FACTURE_TAUX_HORAIRE", "45"))
-CSV_FILE = "facture.csv"
+CSV_FILE = sys.argv[1] if len(sys.argv) > 1 else "facture.csv"
 BANK_ACCOUNT_ID = os.getenv("FACTURE_BANK_ACCOUNT_ID")
 
 tasks = []
